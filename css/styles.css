@@ -193,11 +193,6 @@ nav h1 a {
     padding: 20px 20px;
     order: 0;
   }
-  #reviews-container {
-    width: calc(100% - 84px);
-    padding: 20px 20px;
-    order: 2;
-  }
 }
 @media screen and (min-width: 601px){
   #restaurants-list li {
@@ -221,15 +216,10 @@ nav h1 a {
     height: 100%;
     width: 100%;
   }
-  #restaurant-container, #reviews-container {
+  #restaurant-container {
     width: calc(50% - 80px);
     padding: 20px 40px;
-  }
-  #restaurant-container {
     order: 0;
-  }
-  #reviews-container {
-    order: 2;
   }
 }
 #restaurants-list li {
@@ -330,6 +320,11 @@ nav h1 a {
   width: 50%;
   */
 }
+#reviews-container {
+  width: calc(100% - 80px);
+  padding: 20px 40px;
+  order: 2;
+}
 /*
 #reviews-container {
   padding: 30px 40px 80px;
@@ -355,7 +350,7 @@ nav h1 a {
   overflow: hidden;
   padding: 0 20px 20px;
   position: relative;
-  width: 85%;
+  width: calc(100% - 40px);
 }
 #reviews-list li p {
   margin: 0 0 10px;
