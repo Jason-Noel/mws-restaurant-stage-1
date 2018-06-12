@@ -1,16 +1,47 @@
-if('service-worker' in navigator) {
-    navigator.serviceWorker
-            .register('/sw.js')
-            .then(function() { console.log('Service Worker Registered'); });
-}
-
-self.addEventListener('install', function(e) {
-    e.waitUntil(
-        caches.open('restaurant_review').then(function(cache) {
+self.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches.open('restaurant-review-v1').then(function(cache) {
+            console.log('Opened cache')
             return cache.addAll([
-                '/'
-                //TODO - add other files
-            ])
+                '../index.html',
+                '../restaurant.html',
+                '../css/styles.css',
+                '../data/restaurants.json',
+                '../js/dbhelper.js',
+                '../js/main.js',
+                '../js/restaurant_info.js',
+                '../img/1-small.jpg',
+                '../img/2-small.jpg',
+                '../img/3-small.jpg',
+                '../img/4-small.jpg',
+                '../img/5-small.jpg',
+                '../img/6-small.jpg',
+                '../img/7-small.jpg',
+                '../img/8-small.jpg',
+                '../img/9-small.jpg',
+                '../img/10-small.jpg',
+                '../img/1-large.jpg',
+                '../img/2-large.jpg',
+                '../img/3-large.jpg',
+                '../img/4-large.jpg',
+                '../img/5-large.jpg',
+                '../img/6-large.jpg',
+                '../img/7-large.jpg',
+                '../img/8-large.jpg',
+                '../img/9-large.jpg',
+                '../img/10-large.jpg'
+            ]);
+        })
+    );
+});
+
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            if (response) {
+                return response;
+            }
+            return fetch(event.request);
         })
     );
 });
