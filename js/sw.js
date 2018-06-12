@@ -1,6 +1,9 @@
+const staticCacheName = 'restaurant-review-v2';
+
+//Install cache
 self.addEventListener('install', function(event) {
     event.waitUntil(
-        caches.open('restaurant-review-v1').then(function(cache) {
+        caches.open(staticCacheName).then(function(cache) {
             console.log('Opened cache')
             return cache.addAll([
                 '../index.html',
@@ -35,6 +38,23 @@ self.addEventListener('install', function(event) {
     );
 });
 
+//Remove caches related to old sw
+self.addEventListener('activate', function(event) {
+    event.waitUntil(
+        caches.keys().then(function(cacheNames) {
+            return Promise.all(
+                cacheNames.filter(function(cacheName) {
+                    return cacheName.startsWith('restaurant-review-') &&
+                        cacheName != staticCacheName;
+                }).map(function(cacheName) {
+                    return cache.delete(cacheName);
+                })
+            );
+        })
+    );
+});
+
+//Respond from cache, fallback to network
 self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.match(event.request).then(function(response) {
