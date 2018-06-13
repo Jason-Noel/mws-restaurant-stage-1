@@ -1,4 +1,4 @@
-const staticCacheName = 'restaurant-review-v2';
+const staticCacheName = 'restaurant-review-v3';
 
 //Install cache
 self.addEventListener('install', function(event) {
@@ -6,31 +6,31 @@ self.addEventListener('install', function(event) {
         caches.open(staticCacheName).then(function(cache) {
             return cache.addAll([
                 '/',
-                'css/styles.css',
-                'data/restaurants.json',
-                'js/dbhelper.js',
-                'js/main.js',
-                'js/restaurant_info.js',
-                'img/1-small.jpg',
-                'img/2-small.jpg',
-                'img/3-small.jpg',
-                'img/4-small.jpg',
-                'img/5-small.jpg',
-                'img/6-small.jpg',
-                'img/7-small.jpg',
-                'img/8-small.jpg',
-                'img/9-small.jpg',
-                'img/10-small.jpg',
-                'img/1-large.jpg',
-                'img/2-large.jpg',
-                'img/3-large.jpg',
-                'img/4-large.jpg',
-                'img/5-large.jpg',
-                'img/6-large.jpg',
-                'img/7-large.jpg',
-                'img/8-large.jpg',
-                'img/9-large.jpg',
-                'img/10-large.jpg'
+                '/css/styles.css',
+                '/data/restaurants.json',
+                '/js/dbhelper.js',
+                '/js/main.js',
+                '/js/restaurant_info.js',
+                '/img/1-small.jpg',
+                '/img/2-small.jpg',
+                '/img/3-small.jpg',
+                '/img/4-small.jpg',
+                '/img/5-small.jpg',
+                '/img/6-small.jpg',
+                '/img/7-small.jpg',
+                '/img/8-small.jpg',
+                '/img/9-small.jpg',
+                '/img/10-small.jpg',
+                '/img/1-large.jpg',
+                '/img/2-large.jpg',
+                '/img/3-large.jpg',
+                '/img/4-large.jpg',
+                '/img/5-large.jpg',
+                '/img/6-large.jpg',
+                '/img/7-large.jpg',
+                '/img/8-large.jpg',
+                '/img/9-large.jpg',
+                '/img/10-large.jpg'
             ]);
         })
     );
